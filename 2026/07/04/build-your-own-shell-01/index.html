@@ -78,7 +78,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://rycbartbad.top/2025/11/15/console_renderer/"/>
+    <link rel="canonical" href="https://rycbartbad.top/2026/07/04/build-your-own-shell-01/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -87,18 +87,19 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从零开始的控制台软光栅（一）">
-<meta property="og:url" content="https://rycbartbad.top/2025/11/15/console_renderer/index.html">
+<meta property="og:title" content="用Zig写一个Shell 01：REPL与内建命令">
+<meta property="og:url" content="https://rycbartbad.top/2026/07/04/build-your-own-shell-01/index.html">
 <meta property="og:site_name" content="Rycbartbad">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://rycbartbad.top/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-11-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-07-03T16:09:59.168Z">
+<meta property="article:published_time" content="2026-07-04T04:48:25.000Z">
+<meta property="article:modified_time" content="2026-07-04T09:48:45.741Z">
 <meta property="article:author" content="Rycbartbad">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="光栅化">
-<meta property="article:tag" content="软渲染">
+<meta property="article:tag" content="codecrafters">
+<meta property="article:tag" content="scratch">
+<meta property="article:tag" content="shell">
+<meta property="article:tag" content="zig">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://rycbartbad.top/images/redefine-og.webp">
     
@@ -112,7 +113,7 @@
     
     <title>
         
-            从零开始的控制台软光栅（一） | Rycbartbad
+            用Zig写一个Shell 01：REPL与内建命令 | Rycbartbad
         
     </title>
 
@@ -149,7 +150,7 @@
 
     <script id="hexo-configurations">
     window.config = {"hostname":"rycbartbad.top","root":"/","language":"en"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":false,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Rycbartbad","subtitle":{"text":["Run you clever boy..."],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":[{"icon":"fa-brands fa-github","url":"https://github.com/Rycbartbad"},{"icon":"fa-solid fa-at","url":"3573297011@qq.com"},{"icon":"fa-brands fa-twitter","url":null},{"icon":"fa-brands fa-telegram","url":null},{"icon":"fa-solid fa-link","url":null}],"qrs":null}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1","theme":{"light":"default","dark":"dark"}}},"version":"2.9.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-folder-open"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Friends":{"path":"/links/","icon":"fa-solid fa-link"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur","masonry":{"batch_size":12,"initial_batch_size":24}},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footer":{"runtime":true,"icon":"<i class=\"fa-solid fa-code-pull-request\"></i>","start":"2025/11/15 00:00:00","statistics":false,"customize":null,"icp":{"enable":false,"number":null,"url":null}},"footerStart":"2025/11/15 00:00:00","mermaid":{"style":{"light":"default","dark":"dark"}}};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","highlight_theme":{"light":"atom-one-light","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":false,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Rycbartbad","subtitle":{"text":["Run you clever boy..."],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":[{"icon":"fa-brands fa-github","url":"https://github.com/Rycbartbad"},{"icon":"fa-solid fa-at","url":"3573297011@qq.com"},{"icon":"fa-brands fa-twitter","url":null},{"icon":"fa-brands fa-telegram","url":null},{"icon":"fa-solid fa-link","url":null}],"qrs":null}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1","theme":{"light":"default","dark":"dark"}}},"version":"2.9.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-folder-open"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Friends":{"path":"/links/","icon":"fa-solid fa-link"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur","masonry":{"batch_size":12,"initial_batch_size":24}},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footer":{"runtime":true,"icon":"<i class=\"fa-solid fa-code-pull-request\"></i>","start":"2025/11/15 00:00:00","statistics":false,"customize":null,"icp":{"enable":false,"number":null,"url":null}},"footerStart":"2025/11/15 00:00:00","mermaid":{"style":{"light":"default","dark":"dark"}}};
     window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     window.i18n = {"search":"Search...","toc":"On this page","prev":"Prev","next":"Next","prev_posts":"Prev posts","next_posts":"Next posts","page":"Page %d","recent_posts":"Recent Posts","share":"Share","powered_by":"POWERED BY %s","theme":"THEME","rss_feed":"RSS Feed","category":"Category","categories":"Categories","tag":"Tag","tags":"Tags","post":"Post","posts":"Posts","tagcloud":"Tag Cloud","comment":"Comment","comments":"Comments","home":"Home","archive":"Archive","archives":"Archives","top":"TOP","sticky":"Sticky","go-back-home":"Go Back Home","masonry_loading":"Loading photos...","image_viewer":"Image viewer","close":"Close","exif":{"title":"EXIF","cards":{"camera":"Camera","lens":"Lens","exposure":"Exposure","other":"Other"},"fields":{"make":"Brand","model":"Model","date_taken":"Date taken","lens_model":"Lens","focal_length":"Focal length","focus_mode":"Focus mode","shutter":"Shutter","aperture":"Aperture","iso":"ISO","exposure_program":"Exposure program","exposure_compensation":"Exposure compensation","metering_mode":"Metering mode","flash":"Flash","white_balance":"White balance","latitude":"Latitude","longitude":"Longitude","altitude":"Altitude"},"status":{"loading":"Loading...","no_exif":"No EXIF available","library_missing":"EXIF library not loaded","image_source_missing":"Image source unavailable","unavailable":"EXIF unavailable (blocked by CORS or missing metadata)","flag_unavailable":"EXIF unavailable"}},"about":"About","changelog":"Changelog","links":"Links","link":"Link","friends":"Friends","friend":"Friend","timeline":"Timeline","shuoshuo":"Shuoshuo","bookmarks":"Bookmarks","site_uv":"VISITOR COUNT","site_pv":"TOTAL PAGE VIEWS","read_more":"Read more","wordcount":"Words","min2read":"Mins","status":"Status","runtime":"Blog up for","days":"days","hours":"hrs","minutes":"Min","seconds":"Sec","optimized_by":"and Optimized by Evan","rights":"All Rights Reserved","site_posts":"%s posts in total","site_wordcount":"%s words in total","copyright":{"author":"Author","title":"Title","link":"Link","create_time":"Created at","update_time":"Updated at","license_title":"License","license_content":"This work is licensed under %s.","all_rights_reserved":"All Rights Reserved &#169; %s","public_domain":"This work is in the public domain."},"ago":{"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"},"create_time":"Created","update_time":"Updated","expired":"This post is written %s days ago, and the content may not be up to date."};
     window.data = {"masonry":false};
@@ -418,11 +419,11 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
@@ -449,7 +450,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">从零开始的控制台软光栅（一）</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">用Zig写一个Shell 01：REPL与内建命令</h1>
 			</div>
 			
 		</div>
@@ -468,15 +469,15 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-11-15</span>
-        <span class="mobile">2025-11-15</span>
+        <span class="desktop">2026-07-04 12:48:25</span>
+        <span class="mobile">2026-07-04 12:48:25</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-07-04 00:09:59</span>
-            <span class="mobile">2026-07-04 00:09:59</span>
+            <span class="desktop">2026-07-04 17:48:45</span>
+            <span class="mobile">2026-07-04 17:48:45</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -490,7 +491,17 @@
                     
                         
                         <li>
-                            <a href="/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/">图形学</a>&nbsp;
+                            <a href="/categories/Build-Your-Own/">Build Your Own</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/Build-Your-Own/Shell/">Shell</a>&nbsp;
                         </li>
                     
                     
@@ -504,15 +515,19 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/C/">C++</a>&nbsp;
+                        <a href="/tags/shell/">shell</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/%E5%85%89%E6%A0%85%E5%8C%96/">光栅化</a>&nbsp;
+                        | <a href="/tags/scratch/">scratch</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/%E8%BD%AF%E6%B8%B2%E6%9F%93/">软渲染</a>&nbsp;
+                        | <a href="/tags/zig/">zig</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/codecrafters/">codecrafters</a>&nbsp;
                     </li>
                 
             </ul>
@@ -538,30 +553,40 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<blockquote>
-<p>仅供学习参考。</p>
-</blockquote>
-<p>在C++的学习过程中，我们认识了转义字符，如\n，\t等。通过这些转义字符，我们可以控制输出的格式。为了实现彩色绘制，我们将使用另一种转义序列：ANSI转义序列。</p>
-<h2 id="ANSI转义序列"><a href="#ANSI转义序列" class="headerlink" title="ANSI转义序列"></a>ANSI转义序列</h2><p>ANSI转义序列通常以ESC（ASCII码为27，对应八进制为033， 16进制为1b）作为开头，后面跟随左方括号[与一系列参数，结尾的字母代表不同的命令。</p>
-<p>参数间以分号分隔，例如：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\033[&#123;y&#125;;&#123;x&#125;H   // 将光标移动到(x,y)位置</span><br><span class="line">\033[2J         // 清屏</span><br><span class="line">\033[?25l       // 隐藏光标</span><br><span class="line">\033[3J         //清除滚动缓冲区</span><br><span class="line">\033[38；2;&#123;r&#125;;&#123;g&#125;;&#123;b&#125;m   // 设置前景色（rgb色彩）</span><br><span class="line">\033[48；2;&#123;r&#125;;&#123;g&#125;;&#123;b&#125;m   // 设置背景色（rgb色彩）</span><br></pre></td></tr></table></figure></div>
+			<p>Shell是一种命令语言解释器，它通过读取用户的输入或者加载脚本，调用相应的程序并打印输出。本系列将使用 Zig 0.16.0 从零开始实现一个运行在 Windows 环境下的 Shell。</p>
+<h2 id="命令提示符"><a href="#命令提示符" class="headerlink" title="命令提示符"></a>命令提示符</h2><p>所有的Shell都以一个命令提示符作为开头，表示就绪状态。在Linux或Unix系统上，你会经常看到’$’或’#’；在Windows系统上，则会经常看到’&gt;’，这些就是我们所说的命令提示符。在开始实现之前我们需要先对stdin和stdout进行配置。</p>
+<div class="code-container" data-rel="Zig"><figure class="iseeu highlight zig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> std = <span class="built_in">@import</span>(<span class="string">&quot;std&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">fn</span><span class="function"> main</span>(init: std.process.Init) <span class="operator">!</span><span class="type">void</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> io = init.io;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> stdin_buffer: [<span class="numbers">256</span>]<span class="type">u8</span> = <span class="built_in">@splat</span>(<span class="numbers">0</span>);</span><br><span class="line">    <span class="keyword">var</span> stdin_writer = std.Io.File.Reader.init(.stdin(), io, <span class="operator">&amp;</span>stdin_buffer);</span><br><span class="line">    <span class="keyword">const</span> stdin = <span class="operator">&amp;</span>stdin_writer.interface;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> stdout_buffer: [<span class="numbers">256</span>]<span class="type">u8</span> = <span class="built_in">@splat</span>(<span class="numbers">0</span>);</span><br><span class="line">    <span class="keyword">var</span> stdout_writer = std.Io.File.Writer.init(.stdout(), io, <span class="operator">&amp;</span>stdout_buffer);</span><br><span class="line">    <span class="keyword">const</span> stdout = <span class="operator">&amp;</span>stdout_writer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<p>更多信息可参考：<a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/chargedcreeper/p/-/ANSI" >ANSI 转义序列（ANSI Escape Sequences）<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<p>旧版本终端（如cmd）不完全支持ANSI转义序列，但是在更新后的Windows系统中，我们可以通过开启虚拟终端（Windows Terminal）来实现对ANSI转义序列的支持：</p>
-<div class="code-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不理解这段代码并不会影响后续内容，故不再对Windows API进行详细介绍，后文也几乎不会涉及</span></span><br><span class="line"><span class="comment">// #include &lt;Windows.h&gt;</span></span><br><span class="line">HANDLE hOut = <span class="built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE);</span><br><span class="line">DWORD mode;</span><br><span class="line"><span class="built_in">GetConsoleMode</span>(hOut, &amp;mode);</span><br><span class="line">mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;</span><br><span class="line"><span class="built_in">SetConsoleMode</span>(hOut, mode);</span><br></pre></td></tr></table></figure></div>
+<p>现在我们有了标准输入和标准输出，于是可以创建REPL（“读取-求值-打印”循环），目前先跳过求值与打印部分，只输出命令提示词和接收用户输入。</p>
+<div class="code-container" data-rel="Zig"><figure class="iseeu highlight zig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">fn</span><span class="function"> main</span>(init: std.process.Init) <span class="operator">!</span><span class="type">void</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> stdout.print(<span class="string">&quot;&gt; &quot;</span>, .&#123;&#125;);</span><br><span class="line">        <span class="keyword">try</span> stdout.flush(); <span class="comment">// zig需要手动刷新</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// takeDelimiter()会返回到分隔符前的切片，需要去除Windows输入末尾包含的&#x27;\r&#x27;</span></span><br><span class="line">        <span class="keyword">const</span> input = <span class="keyword">if</span> (<span class="keyword">try</span> stdin.takeDelimiter(<span class="string">&#x27;<span class="string">\n</span>&#x27;</span>)) <span class="operator">|</span>origin<span class="operator">|</span></span><br><span class="line">            <span class="keyword">if</span> (origin.len &gt; <span class="numbers">0</span> <span class="keyword">and</span> origin[origin.len <span class="operator">-</span> <span class="numbers">1</span>] <span class="operator">==</span> <span class="string">&#x27;<span class="string">\r</span>&#x27;</span>)</span><br><span class="line">                origin[<span class="numbers">0</span> .. origin.len <span class="operator">-</span> <span class="numbers">1</span>]</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                origin</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="string">&quot;&quot;</span>;</span><br><span class="line">        _ = input;          <span class="comment">// 暂时不处理用户的输入</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="绘制像素点"><a href="#绘制像素点" class="headerlink" title="绘制像素点"></a>绘制像素点</h2><p>现在我们可以使用”\033[{y};{x}H”与”\033[48；2;{r};{g};{b}m”来绘制像素点了。</p>
-<p>例如：</p>
-<div class="code-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面的代码将(2,3)处的背景设置为红色</span></span><br><span class="line">std::cout &lt;&lt; <span class="string">&quot;\033[3;2H&quot;</span> &lt;&lt; <span class="string">&quot;\033[48;2;255;0;0m&quot;</span>;</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> &gt; zig build run</span><br><span class="line">&gt; <span class="number">111</span></span><br></pre></td></tr></table></figure></div>
 
-<p>这时你会发现（2，3）之后的所有字符的背景都变成了红色。这是因为我们在设置背景色后没有重置颜色。</p>
-<p>通过”\033[m”来重置颜色：</p>
-<div class="code-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::cout &lt;&lt; <span class="string">&quot;\033[3;2H&quot;</span> &lt;&lt; <span class="string">&quot;\033[48;2;255;0;0m &quot;</span>&lt;&lt;<span class="string">&quot;\033[m&quot;</span>; <span class="comment">// 输出一个空格后再重置颜色</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="非法命令处理"><a href="#非法命令处理" class="headerlink" title="非法命令处理"></a>非法命令处理</h2><p>非法命令通常指系统无法识别或执行的命令，通常由拼写错误，权限不足或命令不存在导致。当前代码中我们没有实现任何命令，所以不管用户输入什么都是非法的。当Shell检测到非法命令时，会提示”xxx: command not found”。我们在之前的代码中已经从stdin读取到了用户输入，接下来只需将用户输入打印出来即可。</p>
+<div class="code-container" data-rel="Zig"><figure class="iseeu highlight zig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// _ = input;</span></span><br><span class="line"><span class="keyword">try</span> stdout.print(<span class="string">&quot;&#123;s&#125;: command not found<span class="string">\n</span>&quot;</span>, .&#123;input&#125;);</span><br><span class="line"><span class="keyword">try</span> stdout.flush();</span><br></pre></td></tr></table></figure></div>
 
-<p>完整代码如下：</p>
-<div class="code-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;Windows.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    HANDLE hOut = <span class="built_in">GetStdHandle</span>(STD_OUTPUT_HANDLE);</span><br><span class="line">    DWORD mode;</span><br><span class="line">    <span class="built_in">GetConsoleMode</span>(hOut, &amp;mode);</span><br><span class="line">    mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;</span><br><span class="line">    <span class="built_in">SetConsoleMode</span>(hOut, mode);</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\033[3;2H&quot;</span> &lt;&lt; <span class="string">&quot;\033[48;2;255;0;0m &quot;</span> &lt;&lt; <span class="string">&quot;\033[m&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>虽然只是“command not found”，但是至少现在我们的Shell有了反馈:D。</p>
+<div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> &gt; zig build run</span><br><span class="line">&gt; hello</span><br><span class="line">hello: command not found</span><br></pre></td></tr></table></figure></div>
 
-<p>通过”绘制像素点-&gt;清屏-&gt;绘制像素点-&gt;…”我们可以实现动态的绘制效果。</p>
+<h2 id="内建命令"><a href="#内建命令" class="headerlink" title="内建命令"></a>内建命令</h2><p>有一些命令需要改变Shell自身的状态，如：当前目录，退出状态，不能由子进程执行。我们需要在代码中写好这些内建命令。本章先实现一些简单的内建命令。</p>
+<div class="code-container" data-rel="Zig"><figure class="iseeu highlight zig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Builtin = <span class="keyword">enum</span> &#123;</span><br><span class="line">    exit,</span><br><span class="line">    echo,</span><br><span class="line">    <span class="type">type</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>我们需要读取input中的各个参数，使用tokenizeScalar()可以快速进行文本分割，它返回一个迭代器，可以使用next()返回当前token并前进一步。stringToEnum()能将字符串转换为枚举类型。</p>
+<div class="code-container" data-rel="Zig"><figure class="iseeu highlight zig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arg_iter = std.mem.tokenizeScalar(<span class="type">u8</span>, input, <span class="string">&#x27; &#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> command_str = arg_iter.next().?;</span><br><span class="line"><span class="keyword">const</span> command = std.meta.stringToEnum(Builtin, command_str);</span><br><span class="line"><span class="keyword">if</span>(command) <span class="operator">|</span>builtin_cmd<span class="operator">|</span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> stdout.print(<span class="string">&quot;&#123;s&#125;: command not found<span class="string">\n</span>&quot;</span>, .&#123;command_str&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="exit"><a href="#exit" class="headerlink" title="exit"></a>exit</h3><p>当Shell接收到exit命令时，它应该立即结束进程。同时，exit接收一个参数，用于指定退出状态（0~255）。</p>
+<div class="code-container" data-rel="Zig"><figure class="iseeu highlight zig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(command) <span class="operator">|</span>builtin_cmd<span class="operator">|</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(builtin_cmd)&#123;</span><br><span class="line">        .exit =&gt; &#123;</span><br><span class="line">            <span class="keyword">const</span> status = std.fmt.parseInt(<span class="type">u8</span>, arg_iter.next() <span class="keyword">orelse</span> <span class="string">&quot;0&quot;</span>, <span class="numbers">10</span>) <span class="keyword">catch</span> <span class="numbers">1</span>;</span><br><span class="line">            std.process.exit(status);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h3><p>echo是一个日常使用非常广泛的命令，它将文本或字符串打印到标准输出。</p>
+<div class="code-container" data-rel="Zig"><figure class="iseeu highlight zig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(command) <span class="operator">|</span>builtin_cmd<span class="operator">|</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(builtin_cmd)&#123;</span><br><span class="line">        .echo =&gt; &#123;</span><br><span class="line">            <span class="keyword">while</span> (arg_iter.next()) <span class="operator">|</span>arg<span class="operator">|</span> &#123;</span><br><span class="line">                <span class="keyword">try</span> stdout.print(<span class="string">&quot;&#123;s&#125;&quot;</span>, .&#123;arg&#125;);</span><br><span class="line">                <span class="keyword">if</span> (arg_iter.peek() <span class="operator">!=</span> <span class="literal">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">try</span> stdout.print(<span class="string">&quot; &quot;</span>, .&#123;&#125;);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">try</span> stdout.print(<span class="string">&quot;<span class="string">\n</span>&quot;</span>, .&#123;&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><p>type命令可以提示用户命令的类型，比如该命令是内建命令还是外部程序。当然，目前的命令都是内建命令，不过我们会在后续加入外部程序。</p>
+<div class="code-container" data-rel="Zig"><figure class="iseeu highlight zig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(command) <span class="operator">|</span>builtin_cmd<span class="operator">|</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(builtin_cmd)&#123;</span><br><span class="line">        .<span class="type">type</span> =&gt; &#123;</span><br><span class="line">            <span class="keyword">const</span> type_str = arg_iter.next() <span class="keyword">orelse</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">const</span> type_enum = std.meta.stringToEnum(Builtin, type_str);</span><br><span class="line">            <span class="keyword">if</span> (type_enum) <span class="operator">|</span>_<span class="operator">|</span> &#123;</span><br><span class="line">                <span class="keyword">try</span> stdout.print(<span class="string">&quot;&#123;s&#125; is a shell builtin<span class="string">\n</span>&quot;</span>, .&#123;type_str&#125;);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">try</span> stdout.print(<span class="string">&quot;&#123;s&#125;: not found<span class="string">\n</span>&quot;</span>, .&#123;type_str&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>重新构建之后,我们终于可以正常使用Shell了。</p>
+<div class="code-container" data-rel="Powershell"><figure class="iseeu highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> &gt; zig build run</span><br><span class="line">&gt; <span class="built_in">echo</span> hello world</span><br><span class="line">hello world</span><br><span class="line">&gt; <span class="built_in">type</span> <span class="built_in">echo</span></span><br><span class="line"><span class="built_in">echo</span> is a shell builtin</span><br><span class="line">&gt; <span class="keyword">exit</span></span><br></pre></td></tr></table></figure></div>
+
+<p>至此，我们完成了Shell的核心REPL，以及部分内建命令，不过此时的Shell还无法运行任何外部程序，如：ls，cat。并且目前的错误信息都是直接打印到stdout，后续我们将完善这个初具雏形的Shell，并进行更加规范化的处理。</p>
 
 		</div>
 
@@ -571,15 +596,19 @@
 		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
 			
 			<li class="tag-item mx-0.5">
-				<a href="/tags/C/">#C++</a>&nbsp;
+				<a href="/tags/shell/">#shell</a>&nbsp;
 			</li>
 			
 			<li class="tag-item mx-0.5">
-				<a href="/tags/%E5%85%89%E6%A0%85%E5%8C%96/">#光栅化</a>&nbsp;
+				<a href="/tags/scratch/">#scratch</a>&nbsp;
 			</li>
 			
 			<li class="tag-item mx-0.5">
-				<a href="/tags/%E8%BD%AF%E6%B8%B2%E6%9F%93/">#软渲染</a>&nbsp;
+				<a href="/tags/zig/">#zig</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/codecrafters/">#codecrafters</a>&nbsp;
 			</li>
 			
 		</ul>
@@ -726,8 +755,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">从零开始的控制台软光栅（一）</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ANSI%E8%BD%AC%E4%B9%89%E5%BA%8F%E5%88%97"><span class="nav-text">ANSI转义序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E5%83%8F%E7%B4%A0%E7%82%B9"><span class="nav-text">绘制像素点</span></a></li></ol>
+		<div class="page-title">用Zig写一个Shell 01：REPL与内建命令</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6"><span class="nav-text">命令提示符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E6%B3%95%E5%91%BD%E4%BB%A4%E5%A4%84%E7%90%86"><span class="nav-text">非法命令处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%BB%BA%E5%91%BD%E4%BB%A4"><span class="nav-text">内建命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#exit"><span class="nav-text">exit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#echo"><span class="nav-text">echo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#type"><span class="nav-text">type</span></a></li></ol></li></ol>
 
 	</div>
 </div>
